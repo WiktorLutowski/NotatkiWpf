@@ -1,0 +1,15 @@
+﻿<Window x:Class="NotatkiWpf.AddNoteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotatkiWpf"
+        WindowStartupLocation="CenterOwner"
+        mc:Ignorable="d"
+        Title="Dodaj notatkę" Height="200" Width="400">
+    <StackPanel Margin="10">
+        <TextBlock Text="Treść notatki:" Margin="0,0,0,5"/>
+        <TextBox Name="TxtNoteContent" Height="80" TextWrapping="Wrap" AcceptsReturn="True"/>
+        <Button Content="Zatwierdź i dodaj" Click="BtnSave_Click" Margin="0,10,0,0" Height="30"/>
+    </StackPanel>
+</Window>

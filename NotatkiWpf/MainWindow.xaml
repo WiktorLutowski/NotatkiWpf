@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NotatkiWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Notatki1" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+            <Button Content="Dodaj nową notatkę" Click="BtnAdd_Click" Padding="10,5" Margin="0,0,10,0"/>
+            <Button Content="Zapisz listę do pliku" Click="BtnSaveToFile_Click" Padding="10,5"/>
+        </StackPanel>
+
+        <DataGrid Name="NotesDataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data" Binding="{Binding CreatedAt, StringFormat=\{0:yyyy-MM-dd HH:mm\}}" Width="130" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Treść" Binding="{Binding Content}" Width="*" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Akcje" Width="70">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Usuń" Click="BtnDelete_Click" Background="LightCoral"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
